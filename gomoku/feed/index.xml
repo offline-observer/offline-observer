@@ -7,11 +7,11 @@
 	>
 <channel>
 	<title>
-	Comments for OfflineObserver	</title>
-	<atom:link href="/comments/feed/" rel="self" type="application/rss+xml" />
-	<link>/</link>
+	Comments on: GOMOKU	</title>
+	<atom:link href="/gomoku/feed/" rel="self" type="application/rss+xml" />
+	<link>/gomoku/</link>
 	<description></description>
-	<lastBuildDate>Wed, 28 Aug 2024 16:28:54 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 28 Aug 2024 16:25:19 +0000</lastBuildDate>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
