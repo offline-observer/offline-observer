@@ -12,7 +12,7 @@
 	<atom:link href="/category/offline-project/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description></description>
-	<lastBuildDate>Wed, 28 Aug 2024 16:25:19 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 28 Aug 2024 17:17:25 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -42,7 +42,8 @@
 <div style="height:21px" aria-hidden="true" class="wp-block-spacer"></div>
 
 
-<!DOCTYPE html>
+
+<div class="wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained"><!DOCTYPE html>
 <html lang=“en”>
 <head>
     <meta charset="UTF-8">
@@ -510,6 +511,7 @@ startButton.style.display = 'block';
     </script>
 </body>
 </html>
+</div>
 ]]></content:encoded>
 					
 					<wfw:commentRss>/gomoku/feed/</wfw:commentRss>
