@@ -1,49 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../css/GomokuGame.css'; // CSS 파일로 스타일링
+import '../css/GomokuGame.css'; // 스타일을 위한 CSS 임포트
 
 const GomokuGame = () => {
     const boardSize = 15;
-    const dotPositions = [];
     const [board, setBoard] = useState(Array(boardSize).fill(null).map(() => Array(boardSize).fill(null)));
     const [gameOver, setGameOver] = useState(false);
     const [currentPlayer, setCurrentPlayer] = useState('P');
     const [lastMove, setLastMove] = useState(null);
-    const messageElement = useRef(null);
-    const restartButton = useRef(null);
-    const startButton = useRef(null);
+    const [message, setMessage] = useState('');
+    const boardRef = useRef(null);
+    const messageRef = useRef(null);
+    const restartButtonRef = useRef(null);
+    const startButtonRef = useRef(null);
 
     useEffect(() => {
-        if (startButton.current) {
-            startButton.current.style.display = 'block';
-        }
+        startButtonRef.current.style.display = 'block';
     }, []);
 
     const createBoard = () => {
-        return Array(boardSize).fill(null).map((_, row) => (
-            Array(boardSize).fill(null).map((_, col) => (
-                <div key={`${row}-${col}`} className="cell" data-row={row} data-col={col} onClick={() => onCellClick(row, col)}>
-                    {renderDot(row, col)}
-                    {renderStone(row, col)}
-                </div>
-            ))
-        ));
-    };
-
-    const renderDot = (row, col) => {
-        const position = row * boardSize + col + 1;
-        if (dotPositions.includes(position)) {
-            return <div className="dot"></div>;
-        }
-        return null;
-    };
-
-    const renderStone = (row, col) => {
-        if (board[row][col] === 'P') {
-            return <div className="stone black"></div>;
-        } else if (board[row][col] === 'C') {
-            return <div className="stone white"></div>;
-        }
-        return null;
+        const newBoard = Array(boardSize).fill(null).map(() => Array(boardSize).fill(null));
+        setBoard(newBoard);
     };
 
     const onCellClick = (row, col) => {
@@ -57,6 +33,8 @@ const GomokuGame = () => {
         newBoard[row][col] = currentPlayer;
         setBoard(newBoard);
 
+        setLastMove({ row, col });
+
         const winningCells = checkWinner(row, col, currentPlayer);
         if (winningCells) {
             highlightWinningCells(winningCells);
@@ -64,11 +42,11 @@ const GomokuGame = () => {
             return;
         }
 
-        setCurrentPlayer(currentPlayer === 'P' ? 'C' : 'P');
-        setLastMove({ row, col });
+        const nextPlayer = currentPlayer === 'P' ? 'C' : 'P';
+        setCurrentPlayer(nextPlayer);
 
-        if (currentPlayer === 'C') {
-            setTimeout(computerMove, 500);
+        if (nextPlayer === 'C') {
+            setTimeout(() => computerMove(), 500);
         }
     };
 
@@ -79,29 +57,6 @@ const GomokuGame = () => {
         if (bestMove) {
             makeMove(bestMove.row, bestMove.col);
         }
-    };
-
-    const getBestMove = () => {
-        let bestMove = null;
-        let maxScore = -Infinity;
-
-        for (let row = 0; row < boardSize; row++) {
-            for (let col = 0; col < boardSize; col++) {
-                if (!board[row][col]) {
-                    let attackScore = evaluateMove(row, col, 'C');
-                    let defenseScore = evaluateMove(row, col, 'P');
-
-                    let score = attackScore + defenseScore * 0.9;
-
-                    if (score > maxScore) {
-                        maxScore = score;
-                        bestMove = { row, col };
-                    }
-                }
-            }
-        }
-
-        return bestMove;
     };
 
     const evaluateMove = (row, col, player) => {
@@ -163,6 +118,29 @@ const GomokuGame = () => {
         return score;
     };
 
+    const getBestMove = () => {
+        let bestMove = null;
+        let maxScore = -Infinity;
+
+        for (let row = 0; row < boardSize; row++) {
+            for (let col = 0; col < boardSize; col++) {
+                if (!board[row][col]) {
+                    let attackScore = evaluateMove(row, col, 'C');
+                    let defenseScore = evaluateMove(row, col, 'P');
+
+                    let score = attackScore + defenseScore * 0.9;
+
+                    if (score > maxScore) {
+                        maxScore = score;
+                        bestMove = { row, col };
+                    }
+                }
+            }
+        }
+
+        return bestMove;
+    };
+
     const checkWinner = (row, col, player) => {
         const directions = [
             { x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 1, y: -1 }
@@ -200,49 +178,64 @@ const GomokuGame = () => {
     };
 
     const highlightWinningCells = (cells) => {
+        // 예시: 승리한 돌의 배경색을 노란색으로 변경
         cells.forEach(({ row, col }) => {
-            const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-            if (cell) cell.classList.add('winning-move');
+            const cell = boardRef.current.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+            if (cell) {
+                cell.classList.add('winning-move');
+            }
         });
     };
 
     const endGame = (message) => {
         setGameOver(true);
-        if (messageElement.current) {
-            messageElement.current.textContent = message;
-        }
-        if (restartButton.current) {
-            restartButton.current.style.display = 'block';
+        setMessage(message);
+        if (restartButtonRef.current) {
+            restartButtonRef.current.style.display = 'block';
         }
     };
 
     const restartGame = () => {
-        setBoard(Array(boardSize).fill(null).map(() => Array(boardSize).fill(null)));
+        createBoard();
         setCurrentPlayer('P');
         setGameOver(false);
         setLastMove(null);
-        if (messageElement.current) {
-            messageElement.current.textContent = '';
-        }
-        if (restartButton.current) {
-            restartButton.current.style.display = 'none';
+        setMessage('');
+        if (restartButtonRef.current) {
+            restartButtonRef.current.style.display = 'none';
         }
     };
 
     const startGame = () => {
-        if (startButton.current) {
-            startButton.current.style.display = 'none';
-        }
         createBoard();
+        if (startButtonRef.current) {
+            startButtonRef.current.style.display = 'none';
+        }
     };
 
     return (
         <div className="game-wrapper">
             <div className="game-container">
-                <div id="board">{createBoard()}</div>
-                <button id="start" ref={startButton} onClick={startGame}>START</button>
-                <button id="restart" ref={restartButton} onClick={restartGame} style={{ display: 'none' }}>RESTART</button>
-                <div id="message" ref={messageElement}></div>
+                <div id="board" ref={boardRef} className="board">
+                    {board.map((row, rowIndex) => (
+                        row.map((cell, colIndex) => (
+                            <div
+                                key={`${rowIndex}-${colIndex}`}
+                                className={`cell ${lastMove && lastMove.row === rowIndex && lastMove.col === colIndex ? 'last-move' : ''}`}
+                                data-row={rowIndex}
+                                data-col={colIndex}
+                                onClick={() => onCellClick(rowIndex, colIndex)}
+                            >
+                                {cell && (
+                                    <div className={`stone ${cell === 'P' ? 'black' : 'white'}`}></div>
+                                )}
+                            </div>
+                        ))
+                    ))}
+                </div>
+                <button id="start" ref={startButtonRef} onClick={startGame}>START</button>
+                <button id="restart" ref={restartButtonRef} onClick={restartGame} style={{ display: 'none' }}>RESTART</button>
+                <div id="message" ref={messageRef}>{message}</div>
             </div>
         </div>
     );
