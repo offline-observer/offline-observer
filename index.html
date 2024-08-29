@@ -3,13 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-	<!-- Manifest added by SuperPWA - Progressive Web Apps Plugin For WordPress -->
-<link rel="manifest" href="/superpwa-manifest.json">
-<link rel="prefetch" href="/superpwa-manifest.json">
-<meta name="theme-color" content="#ffffff">
-<!-- / SuperPWA.com -->
-<title>OfflineObserver</title>
+	<title>OfflineObserver</title>
 <meta name="robots" content="max-image-preview:large">
+<link rel="prefetch" href="/pwa-manifest.json">
+<link rel="manifest" href="/pwa-manifest.json">
+<link rel="apple-touch-icon" sizes="512x512" href="/wp-content/uploads/2024/08/logo.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/wp-content/uploads/2024/08/logo.png">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 <link rel="alternate" type="application/rss+xml" title="OfflineObserver &raquo; Feed" href="/feed/">
@@ -45,6 +44,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 /* Kadence Footer CSS */
 .site-middle-footer-wrap .site-footer-row-container-inner{border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);}.site-middle-footer-inner-wrap{padding-top:0px;padding-bottom:0px;grid-column-gap:30px;grid-row-gap:30px;}.site-middle-footer-inner-wrap .widget{margin-bottom:30px;}.site-middle-footer-inner-wrap .site-footer-section:not(:last-child):after{right:calc(-30px / 2);}@media all and (max-width: 767px){.site-middle-footer-wrap .site-footer-row-container-inner{border-bottom:0px solid transparent;}}.site-top-footer-wrap .site-footer-row-container-inner{border-top:1px solid rgba(0,0,0,0.06);}.site-top-footer-inner-wrap{padding-top:30px;padding-bottom:30px;grid-column-gap:30px;grid-row-gap:30px;}.site-top-footer-inner-wrap .widget{margin-bottom:30px;}.site-top-footer-inner-wrap .site-footer-section:not(:last-child):after{right:calc(-30px / 2);}.site-bottom-footer-wrap .site-footer-row-container-inner{background:rgba(255,255,255,0.06);}.site-bottom-footer-inner-wrap{padding-top:30px;padding-bottom:30px;grid-column-gap:30px;}.site-bottom-footer-inner-wrap .widget{margin-bottom:30px;}.site-bottom-footer-inner-wrap .site-footer-section:not(:last-child):after{right:calc(-30px / 2);}@media all and (max-width: 1024px){.site-bottom-footer-wrap .site-footer-row-container-inner{background:rgba(255,255,255,0.06);}}@media all and (max-width: 767px){.site-bottom-footer-wrap .site-footer-row-container-inner{background:rgba(255,255,255,0.06);}}.footer-social-wrap .footer-social-inner-wrap{font-size:1em;gap:0.3em;}.site-footer .site-footer-wrap .site-footer-section .footer-social-wrap .footer-social-inner-wrap .social-button{border:1px none currentColor;border-radius:3px;}</style>
 <link rel="stylesheet" id="kadence-simplelightbox-css-css" href="/wp-content/themes/kadence/assets/css/simplelightbox.min.css?ver=1.2.9" media="all">
+<link rel="stylesheet" id="pwaforwp-style-css" href="/wp-content/plugins/pwa-for-wp/assets/css/pwaforwp-main.min.css?ver=1.7.73.5" media="all">
 <style id="kadence-blocks-global-variables-inline-css">:root {--global-kb-font-size-sm:clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);--global-kb-font-size-md:clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);--global-kb-font-size-lg:clamp(1.75rem, 1.576rem + 0.543vw, 2rem);--global-kb-font-size-xl:clamp(2.25rem, 1.728rem + 1.63vw, 3rem);--global-kb-font-size-xxl:clamp(2.5rem, 1.456rem + 3.26vw, 4rem);--global-kb-font-size-xxxl:clamp(2.75rem, 0.489rem + 7.065vw, 6rem);}</style>
 <link rel="stylesheet" id="dracula-frontend-css" href="/wp-content/plugins/dracula-dark-mode/assets/css/frontend.css?ver=1.2.3" media="all">
 <style id="dracula-frontend-inline-css">.reading-mode-buttons { --reading-mode-button-alignment: start !important; }.reading-mode-buttons .reading-mode-button { --reading-mode-bg-color: #E3F5FF;--reading-mode-bg-darker: #c5d7e1;--reading-mode-text-color: #2F80ED; }.reading-mode-buttons .reading-mode-time {  }.reading-mode-progress { --reading-mode-progress-height: 7px;--reading-mode-progress-color: linear-gradient(90deg, #004AFF 80%, rgba(96, 239, 255, 0) 113.89%); }</style>
@@ -227,8 +227,17 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="preload" id="kadence-footer-preload" href="/wp-content/themes/kadence/assets/css/footer.min.css?ver=1.2.9" as="style">
 <link rel="icon" href="/wp-content/uploads/2024/08/cropped-logo-32x32.png" sizes="32x32">
 <link rel="icon" href="/wp-content/uploads/2024/08/cropped-logo-192x192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="/wp-content/uploads/2024/08/cropped-logo-180x180.png">
 <meta name="msapplication-TileImage" content="/wp-content/uploads/2024/08/cropped-logo-270x270.png">
+<meta name="pwaforwp" content="wordpress-plugin">
+        <meta name="theme-color" content="rgb(255,255,255)">
+        <meta name="apple-mobile-web-app-title" content="OfflineObserver">
+        <meta name="application-name" content="OfflineObserver">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+<link rel="apple-touch-icon" sizes="192x192" href="/wp-content/uploads/2024/08/logo.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/wp-content/uploads/2024/08/logo.png">
 </head>
 
 <body class="home page-template-default page page-id-6 wp-custom-logo wp-embed-responsive dracula-transition-none footer-on-bottom hide-focus-outline link-style-standard has-sidebar has-left-sidebar has-sticky-sidebar content-title-style-hide content-width-left content-style-unboxed content-vertical-padding-show non-transparent-header mobile-non-transparent-header">
@@ -950,8 +959,6 @@ startButton.style.display = 'block';
 		</div>
 	</div>
 	<style id="core-block-supports-inline-css">.wp-container-core-group-is-layout-1{flex-wrap:nowrap;justify-content:center;align-items:flex-start;}.wp-container-core-buttons-is-layout-1{justify-content:center;}.wp-container-core-group-is-layout-2 > .alignfull{margin-right:calc(var(--wp--preset--spacing--30) * -1);margin-left:calc(var(--wp--preset--spacing--30) * -1);}</style>
-<script id="superpwa-register-sw-js-extra">var superpwa_sw = {"url":"\/superpwa-sw.js?2.2.30","disable_addtohome":"0","enableOnDesktop":"","offline_message":"1","offline_message_txt":"You are currently offline."};</script>
-<script src="/wp-content/plugins/super-progressive-web-apps/public/js/register-sw.js?ver=2.2.30" id="superpwa-register-sw-js"></script>
 <script src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js" id="micromodal-js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" id="fusejs-js"></script>
 <script id="wp-sls-search-js-js-extra">var searchParams = {"searchForm":"[role=search]","searchFormInput":"input.search-field"};
@@ -961,6 +968,12 @@ var searchParams = {"searchForm":"[role=search]","searchFormInput":"input.search
 <script src="/wp-content/themes/kadence/assets/js/lightbox-init.min.js?ver=1.2.9" id="kadence-lightbox-init-js" async></script>
 <script id="kadence-navigation-js-extra">var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child menu of","collapse":"Child menu","collapseOf":"Child menu of"},"breakPoints":{"desktop":"1024","tablet":768},"scrollOffset":"0"};</script>
 <script src="/wp-content/themes/kadence/assets/js/navigation.min.js?ver=1.2.9" id="kadence-navigation-js" async></script>
+<script id="pwaforwp-js-js-extra">var pwaforwp_js_obj = {"ajax_url":"\/wp-admin\/admin-ajax.php","pwa_ms_prefix":"","pwa_home_url":"\/","loader_desktop":"0","loader_mobile":"0","loader_admin":"0","user_admin":"","loader_only_pwa":"0","reset_cookies":"0","force_rememberme":"0"};</script>
+<script src="/wp-content/plugins/pwa-for-wp/assets/js/pwaforwp.min.js?ver=1.7.73.5" id="pwaforwp-js-js"></script>
+<script src="/wp-content/plugins/pwa-for-wp/assets/js/pwaforwp-video.js?ver=1.7.73.5" id="pwaforwp-video-js-js"></script>
+<script id="pwaforwp-download-js-js-extra">var pwaforwp_download_js_obj = {"force_rememberme":"0"};</script>
+<script src="/wp-content/plugins/pwa-for-wp/assets/js/pwaforwp-download.js?ver=1.7.73.5" id="pwaforwp-download-js-js"></script>
+<script src="/pwa-register-sw.js?ver=1.7.73" id="pwa-main-script-js"></script>
 <script src="/wp-includes/js/dist/vendor/react.min.js?ver=18.3.1" id="react-js"></script>
 <script src="/wp-includes/js/dist/vendor/react-dom.min.js?ver=18.3.1" id="react-dom-js"></script>
 <script src="/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
