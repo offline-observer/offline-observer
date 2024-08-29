@@ -222,17 +222,13 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
             }
 
         </script>
-	<meta name="generator" content="performance-lab 3.4.0; plugins: performant-translations, speculation-rules, webp-uploads">
-<meta name="generator" content="performant-translations 1.2.0">
-<meta name="generator" content="webp-uploads 2.1.0">
-<link rel="pingback" href="/xmlrpc.php">
+	<link rel="pingback" href="/xmlrpc.php">
 <link rel="preload" id="kadence-header-preload" href="/wp-content/themes/kadence/assets/css/header.min.css?ver=1.2.9" as="style">
 <link rel="preload" id="kadence-content-preload" href="/wp-content/themes/kadence/assets/css/content.min.css?ver=1.2.9" as="style">
 <link rel="preload" id="kadence-sidebar-preload" href="/wp-content/themes/kadence/assets/css/sidebar.min.css?ver=1.2.9" as="style">
 <link rel="preload" id="kadence-related-posts-preload" href="/wp-content/themes/kadence/assets/css/related-posts.min.css?ver=1.2.9" as="style">
 <link rel="preload" id="kad-splide-preload" href="/wp-content/themes/kadence/assets/css/kadence-splide.min.css?ver=1.2.9" as="style">
 <link rel="preload" id="kadence-footer-preload" href="/wp-content/themes/kadence/assets/css/footer.min.css?ver=1.2.9" as="style">
-<meta name="generator" content="speculation-rules 1.3.1">
 <link rel="icon" href="/wp-content/uploads/2024/08/cropped-logo-32x32.png" sizes="32x32">
 <link rel="icon" href="/wp-content/uploads/2024/08/cropped-logo-192x192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="/wp-content/uploads/2024/08/cropped-logo-180x180.png">
@@ -510,7 +506,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
       </div>
     </div>
   </div>
-<script type="speculationrules">{"prerender":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-login.php","\/wp-admin\/*","\/*\\?*(^|&)_wpnonce=*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/kadence\/*"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prerender"}}]},"eagerness":"moderate"}]}</script>
 	<div id="mobile-drawer" class="popup-drawer popup-drawer-layout-sidepanel popup-drawer-animation-fade popup-drawer-side-left" data-drawer-target-string="#mobile-drawer">
 		<div class="drawer-overlay" data-drawer-target-string="#mobile-drawer"></div>
 		<div class="drawer-inner">
@@ -539,6 +534,40 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <script id="wp-sls-search-js-js-extra">var searchParams = {"searchForm":"[role=search]","searchFormInput":"input.search-field"};
 var searchParams = {"searchForm":"[role=search]","searchFormInput":"input.search-field"};</script>
 <script src="/wp-content/plugins/wp-serverless-search-master/main/main.js" id="wp-sls-search-js-js"></script>
+<script id="swcfpc_auto_prefetch_url-js-before">
+function swcfpc_wildcard_check(str, rule) {
+                    let escapeRegex = (str) => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+                    return new RegExp("^" + rule.split("*").map(escapeRegex).join(".*") + "$").test(str);
+                }
+
+                function swcfpc_can_url_be_prefetched(href) {
+
+                    if( href.length == 0 )
+                        return false;
+
+                    if( href.startsWith("mailto:") )
+                        return false;
+
+                    if( href.startsWith("https://") )
+                        href = href.split("https://"+location.host)[1];
+                    else if( href.startsWith("http://") )
+                        href = href.split("http://"+location.host)[1];
+
+                    for( let i=0; i < swcfpc_prefetch_urls_to_exclude.length; i++) {
+
+                        if( swcfpc_wildcard_check(href, swcfpc_prefetch_urls_to_exclude[i]) )
+                            return false;
+
+                    }
+
+                    return true;
+
+                }
+
+                let swcfpc_prefetch_urls_to_exclude = '["\/*ao_noptirocket*","\/*jetpack=comms*","\/*kinsta-monitor*","*ao_speedup_cachebuster*","\/*removed_item*","\/my-account*","\/wc-api\/*","\/edd-api\/*","\/wp-json*"]';
+                swcfpc_prefetch_urls_to_exclude = (swcfpc_prefetch_urls_to_exclude) ? JSON.parse(swcfpc_prefetch_urls_to_exclude) : [];
+</script>
+<script type="module" src="/wp-content/plugins/wp-cloudflare-page-cache/assets/js/instantpage.min.js?ver=5.2.0" defer id="swcfpc_instantpage-js"></script>
 <script src="/wp-includes/js/comment-reply.min.js?ver=6.6.1" id="comment-reply-js" async data-wp-strategy="async"></script>
 <script src="/wp-content/themes/kadence/assets/js/simplelightbox.min.js?ver=1.2.9" id="kadence-simplelightbox-js" async></script>
 <script src="/wp-content/themes/kadence/assets/js/lightbox-init.min.js?ver=1.2.9" id="kadence-lightbox-init-js" async></script>
@@ -559,5 +588,74 @@ wp.i18n.setLocaleData( { 'text directionltr': [ 'ltr' ] } );
 <script src="/wp-content/themes/kadence/assets/js/splide.min.js?ver=1.2.9" id="kad-splide-js" async></script>
 <script id="kadence-slide-init-js-extra">var kadenceSlideConfig = {"of":"of","to":"to","slide":"Slide","next":"Next","prev":"Previous"};</script>
 <script src="/wp-content/themes/kadence/assets/js/splide-init.min.js?ver=1.2.9" id="kadence-slide-init-js" async></script>
+
+      <script id="swcfpc">
+        const swcfpc_prefetch_urls_timestamp_server = '1724941175';
+
+        let swcfpc_prefetched_urls = localStorage.getItem("swcfpc_prefetched_urls");
+        swcfpc_prefetched_urls = (swcfpc_prefetched_urls) ? JSON.parse(swcfpc_prefetched_urls) : [];
+
+        let swcfpc_prefetch_urls_timestamp_client = localStorage.getItem("swcfpc_prefetch_urls_timestamp_client");
+
+        if (swcfpc_prefetch_urls_timestamp_client == undefined || swcfpc_prefetch_urls_timestamp_client != swcfpc_prefetch_urls_timestamp_server) {
+          swcfpc_prefetch_urls_timestamp_client = swcfpc_prefetch_urls_timestamp_server;
+          swcfpc_prefetched_urls = new Array();
+          localStorage.setItem("swcfpc_prefetched_urls", JSON.stringify(swcfpc_prefetched_urls));
+          localStorage.setItem("swcfpc_prefetch_urls_timestamp_client", swcfpc_prefetch_urls_timestamp_client);
+        }
+
+        function swcfpc_element_is_in_viewport(element) {
+
+          let bounding = element.getBoundingClientRect();
+
+          if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= (window.innerWidth || document.documentElement.clientWidth) && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+            return true;
+
+          return false;
+
+        }
+
+        function swcfpc_prefetch_urls() {
+
+          let comp = new RegExp(location.host);
+
+          document.querySelectorAll("a").forEach((item) => {
+
+            if (item.href) {
+
+              let href = item.href.split("#")[0];
+
+              if (swcfpc_can_url_be_prefetched(href) && swcfpc_prefetched_urls.includes(href) == false && comp.test(item.href) && swcfpc_element_is_in_viewport(item)) {
+
+                swcfpc_prefetched_urls.push(href);
+
+                //console.log( href );
+
+                let prefetch_element = document.createElement('link');
+                prefetch_element.rel = "prefetch";
+                prefetch_element.href = href;
+
+                document.getElementsByTagName('body')[0].appendChild(prefetch_element);
+
+              }
+
+            }
+
+          })
+
+          localStorage.setItem("swcfpc_prefetched_urls", JSON.stringify(swcfpc_prefetched_urls));
+
+        }
+
+        window.addEventListener("load", function(event) {
+          swcfpc_prefetch_urls();
+        });
+
+        window.addEventListener("scroll", function(event) {
+          swcfpc_prefetch_urls();
+        });
+      </script>
+
+    
 </body>
 </html>
