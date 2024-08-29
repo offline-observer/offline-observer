@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>OfflineObserver</title>
+	<atom:link href="/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Wed, 28 Aug 2024 07:43:03 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2024/08/cropped-logo-32x32.png</url>
+	<title>OfflineObserver</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Introduction to the Offline Project</title>
+		<link>/introduction-to-the-offline-project/</link>
+					<comments>/introduction-to-the-offline-project/#respond</comments>
+		
+		<dc:creator><![CDATA[OfflineObserver]]></dc:creator>
+		<pubDate>Tue, 27 Aug 2024 11:37:42 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<guid isPermaLink="false">/?p=123</guid>
+
+					<description><![CDATA[The Offline Project is the first initiative by Offline Observer, focused on bringing traditional games and pastimes into the digital era. Our mission is to make these beloved activities, which have been passed down through generations, accessible on smart devices without needing an internet connection. Although the exact origins of these games and pastimes might...]]></description>
+										<content:encoded><![CDATA[
+<p>The Offline Project is the first initiative by Offline Observer, focused on bringing traditional games and pastimes into the digital era. Our mission is to make these beloved activities, which have been passed down through generations, accessible on smart devices without needing an internet connection.</p>
+
+
+
+<p>Although the exact origins of these games and pastimes might not always be clear, they have been preserved and adapted over time. They are a rich part of our cultural heritage that we want to keep alive and share. By making these traditional activities available in a portable, offline format, we hope to provide both enjoyment and educational benefits to our users.</p>
+
+
+
+<p>Our goal is to protect these diverse cultural traditions while encouraging intellectual growth. We believe that by offering easy access to these games, we can help people connect with our shared past and also promote learning and social interaction today.</p>
+
+
+
+<p><strong>Why isn’t this an open-source project?</strong> Currently, the Offline Project is not open-source because I need to ensure my own financial stability while working on this creative and meaningful project. I have chosen to use online platforms to spread information quickly while focusing on developing apps that work without an internet connection. This approach helps me balance my passion for innovation with my need to make a living.</p>
+
+
+
+<p>In the future, once I have achieved financial stability and met the main goals of this project, I will seriously consider making it open-source. At that time, I want to make it easy for anyone interested to learn from and contribute to the project.</p>
+
+
+
+<p>It’s important to note that the main goal of this project is to advance knowledge and intellectual development. While direct copying or redistribution of the content is not allowed, sharing within the app&#8217;s built-in features is encouraged.</p>
+
+
+
+<p>I promise that when the time is right, I will consider open-sourcing this project in a way that makes it accessible to those who want to learn from and contribute to it. Until then, I hope you enjoy the content and the benefits it offers.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/introduction-to-the-offline-project/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
