@@ -1,11 +1,7 @@
 const CACHE_NAME = 'your-site-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/about.html',
-  '/contact.html',
-  '/styles/main.css',
-  '/scripts/main.js'
+  '/introduction-to-the-offline-project/'
   // 여기에 사전 캐시할 다른 링크를 추가하세요.
 ];
 
