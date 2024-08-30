@@ -301,7 +301,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
                 initDraculaDarkMode();
             }
 
-        </script><meta name="dracula" content="84d91d1d5bc24d36bebcbdf07f48cfb1"><style class="dracula dracula--override" media="screen"></style>
+        </script><meta name="dracula" content="640a01fc6f67425f8818273130250475"><style class="dracula dracula--override" media="screen"></style>
 	<link rel="manifest" href="../manifest.json">
 <meta name="generator" content="performance-lab 3.4.0; plugins: speculation-rules">
 <link rel="pingback" href="https://offlineobserver.local/xmlrpc.php"><link rel="preload" id="kadence-header-preload" href="../wp-content/themes/kadence/assets/css/header.min%EF%B9%96ver=1.2.9.css" as="style">
@@ -318,17 +318,78 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <style id="react-tooltip-core-styles" type="text/css">:root{--rt-color-white:#fff;--rt-color-dark:#222;--rt-color-success:#8dc572;--rt-color-error:#be6464;--rt-color-warning:#f0ad4e;--rt-color-info:#337ab7;--rt-opacity:0.9;--rt-transition-show-delay:0.15s;--rt-transition-closing-delay:0.15s}.core-styles-module_tooltip__3vRRp{position:absolute;top:0;left:0;pointer-events:none;opacity:0;will-change:opacity}.core-styles-module_fixed__pcSol{position:fixed}.core-styles-module_arrow__cvMwQ{position:absolute;background:inherit}.core-styles-module_noArrow__xock6{display:none}.core-styles-module_clickable__ZuTTB{pointer-events:auto}.core-styles-module_show__Nt9eE{opacity:var(--rt-opacity);transition:opacity var(--rt-transition-show-delay)ease-out}.core-styles-module_closing__sGnxF{opacity:0;transition:opacity var(--rt-transition-closing-delay)ease-in}</style><style class="dracula dracula--sync" media="screen"></style><style id="react-tooltip-base-styles" type="text/css">.styles-module_tooltip__mnnfp{padding:8px 16px;border-radius:3px;font-size:90%;width:max-content}.styles-module_arrow__K0L3T{width:8px;height:8px}[class*='react-tooltip__place-top']>.styles-module_arrow__K0L3T{transform:rotate(45deg)}[class*='react-tooltip__place-right']>.styles-module_arrow__K0L3T{transform:rotate(135deg)}[class*='react-tooltip__place-bottom']>.styles-module_arrow__K0L3T{transform:rotate(225deg)}[class*='react-tooltip__place-left']>.styles-module_arrow__K0L3T{transform:rotate(315deg)}.styles-module_dark__xNqje{background:var(--rt-color-dark);color:var(--rt-color-white)}.styles-module_light__Z6W-X{background-color:var(--rt-color-white);color:var(--rt-color-dark)}.styles-module_success__A2AKt{background-color:var(--rt-color-success);color:var(--rt-color-white)}.styles-module_warning__SCK0X{background-color:var(--rt-color-warning);color:var(--rt-color-white)}.styles-module_error__JvumD{background-color:var(--rt-color-error);color:var(--rt-color-white)}.styles-module_info__BWdHW{background-color:var(--rt-color-info);color:var(--rt-color-white)}</style><style class="dracula dracula--sync" media="screen"></style></head>
 
 <body class="post-template-default single single-post postid-123 single-format-standard wp-custom-logo wp-embed-responsive dracula-transition-none footer-on-bottom hide-focus-outline link-style-standard has-sidebar has-left-sidebar has-sticky-sidebar content-title-style-normal content-width-normal content-style-boxed content-vertical-padding-show non-transparent-header mobile-non-transparent-header">
-<script>if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-      .then((registration) => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+<script>const CACHE_NAME = 'your-site-cache-v1';
+const urlsToCache = [
+  'https://offline.observer/',  // 절대 경로로 홈페이지 캐시
+  '/introduction-to-the-offline-project/'  // 상대 경로로 다른 페이지 캐시
+  // 여기에 사전 캐시할 다른 링크를 추가하세요.
+];
+
+// 설치 이벤트 - 캐시 저장
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
       })
       .catch((error) => {
-        console.error('ServiceWorker registration failed: ', error);
-      });
-  });
-}
+        console.error('Failed to open cache:', error);
+      })
+  );
+});
+
+// 요청 이벤트 - 캐시에서 반환
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => {
+        // 캐시에서 발견된 경우 반환
+        if (response) {
+          return response;
+        }
+
+        // 네트워크에서 가져와 캐시에 저장
+        return fetch(event.request)
+          .then((networkResponse) => {
+            // 캐시에 저장하려면 복사본이 필요합니다.
+            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+              return networkResponse;
+            }
+
+            const responseToCache = networkResponse.clone();
+
+            caches.open(CACHE_NAME)
+              .then((cache) => {
+                cache.put(event.request, responseToCache);
+              });
+
+            return networkResponse;
+          });
+      })
+      .catch((error) => {
+        console.error('Fetch failed:', error);
+        throw error;
+      })
+  );
+});
+
+// 활성화 이벤트 - 오래된 캐시 제거
+self.addEventListener('activate', (event) => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            console.log('Deleting old cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
 </script><div id="wrapper" class="site wp-site-blocks">
 			<a class="skip-link screen-reader-text scroll-ignore" href="#main">Skip to content</a>
 		<link rel="stylesheet" id="kadence-header-css" href="../wp-content/themes/kadence/assets/css/header.min%EF%B9%96ver=1.2.9.css" media="all"><style class="dracula dracula--sync" media="screen"></style>
@@ -349,7 +410,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 						<div class="site-header-item site-header-focus-item site-header-item-main-navigation header-navigation-layout-stretch-false header-navigation-layout-fill-stretch-false" data-section="kadence_customizer_primary_navigation">
 		<nav id="site-navigation" class="main-navigation header-navigation nav--toggle-sub header-navigation-style-standard header-navigation-dropdown-animation-none" role="navigation" aria-label="Primary Navigation">
 				<div class="primary-menu-container header-menu-container">
-			<ul id="primary-menu" class="menu"><li class="dracula-toggle-wrap menu-item" data-style="14"><div data-tooltip-id="dracula-toggle-tooltip-14" class="dracula-toggle dracula-ignore style-14 mode-dark"><span data-tooltip-id="dracula-toggle-tooltip388872200" class="dracula-toggle-icon"></span></div></li></ul>		</div>
+			<ul id="primary-menu" class="menu"><li class="dracula-toggle-wrap menu-item" data-style="14"><div data-tooltip-id="dracula-toggle-tooltip-14" class="dracula-toggle dracula-ignore style-14 mode-dark"><span data-tooltip-id="dracula-toggle-tooltip646954697" class="dracula-toggle-icon"></span></div></li></ul>		</div>
 	</nav><!-- #site-navigation -->
 	</div><!-- data-section="primary_navigation" -->
 					</div>
@@ -386,7 +447,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 						<div class="site-header-item site-header-focus-item site-header-item-mobile-navigation mobile-navigation-layout-stretch-false" data-section="kadence_customizer_mobile_navigation">
 		<nav id="mobile-site-navigation" class="mobile-navigation drawer-navigation drawer-navigation-parent-toggle-false" role="navigation" aria-label="Primary Mobile Navigation">
 				<div class="mobile-menu-container drawer-menu-container">
-			<ul id="mobile-menu" class="menu has-collapse-sub-nav"><li class="dracula-toggle-wrap menu-item" data-style="14"><div data-tooltip-id="dracula-toggle-tooltip-14" class="dracula-toggle dracula-ignore style-14 mode-dark"><span data-tooltip-id="dracula-toggle-tooltip351677490" class="dracula-toggle-icon"></span></div></li></ul>		</div>
+			<ul id="mobile-menu" class="menu has-collapse-sub-nav"><li class="dracula-toggle-wrap menu-item" data-style="14"><div data-tooltip-id="dracula-toggle-tooltip-14" class="dracula-toggle dracula-ignore style-14 mode-dark"><span data-tooltip-id="dracula-toggle-tooltip532004301" class="dracula-toggle-icon"></span></div></li></ul>		</div>
 	</nav><!-- #site-navigation -->
 	</div><!-- data-section="mobile_navigation" -->
 					</div>
