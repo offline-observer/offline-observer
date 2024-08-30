@@ -8,9 +8,9 @@
 	>
 
 <channel>
-	<title>News &#8211; OfflineObserver</title>
-	<atom:link href="/category/news/feed/" rel="self" type="application/rss+xml" />
-	<link>/</link>
+	<title>OfflineObserver</title>
+	<atom:link href="https://offlineobserver.local/feed/" rel="self" type="application/rss+xml" />
+	<link>https://offlineobserver.local</link>
 	<description></description>
 	<lastBuildDate>Wed, 28 Aug 2024 07:43:03 +0000</lastBuildDate>
 	<language>en-US</language>
@@ -21,21 +21,21 @@
 	<generator>https://wordpress.org/?v=6.6.1</generator>
 
 <image>
-	<url>/wp-content/uploads/2024/08/cropped-logo-32x32.png</url>
-	<title>News &#8211; OfflineObserver</title>
-	<link>/</link>
+	<url>https://offlineobserver.local/wp-content/uploads/2024/08/cropped-logo-32x32.png</url>
+	<title>OfflineObserver</title>
+	<link>https://offlineobserver.local</link>
 	<width>32</width>
 	<height>32</height>
 </image> 
 	<item>
 		<title>Introduction to the Offline Project</title>
-		<link>/introduction-to-the-offline-project/</link>
-					<comments>/introduction-to-the-offline-project/#respond</comments>
+		<link>https://offlineobserver.local/introduction-to-the-offline-project/</link>
+					<comments>https://offlineobserver.local/introduction-to-the-offline-project/#respond</comments>
 		
 		<dc:creator><![CDATA[OfflineObserver]]></dc:creator>
 		<pubDate>Tue, 27 Aug 2024 11:37:42 +0000</pubDate>
 				<category><![CDATA[News]]></category>
-		<guid isPermaLink="false">/?p=123</guid>
+		<guid isPermaLink="false">https://offlineobserver.local/?p=123</guid>
 
 					<description><![CDATA[The Offline Project is the first initiative by Offline Observer, focused on bringing traditional games and pastimes into the digital era. Our mission is to make these beloved activities, which have been passed down through generations, accessible on smart devices without needing an internet connection. Although the exact origins of these games and pastimes might...]]></description>
 										<content:encoded><![CDATA[
@@ -66,7 +66,7 @@
 <p>I promise that when the time is right, I will consider open-sourcing this project in a way that makes it accessible to those who want to learn from and contribute to it. Until then, I hope you enjoy the content and the benefits it offers.</p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>/introduction-to-the-offline-project/feed/</wfw:commentRss>
+					<wfw:commentRss>https://offlineobserver.local/introduction-to-the-offline-project/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
 		
 		

@@ -7,11 +7,11 @@
 	>
 <channel>
 	<title>
-	Comments for OfflineObserver	</title>
-	<atom:link href="/comments/feed/" rel="self" type="application/rss+xml" />
-	<link>/</link>
+	Comments on: Introduction to the Offline Project	</title>
+	<atom:link href="https://offlineobserver.local/introduction-to-the-offline-project/feed/" rel="self" type="application/rss+xml" />
+	<link>https://offlineobserver.local/introduction-to-the-offline-project/</link>
 	<description></description>
-	<lastBuildDate>Thu, 29 Aug 2024 17:48:55 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 28 Aug 2024 07:43:03 +0000</lastBuildDate>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
